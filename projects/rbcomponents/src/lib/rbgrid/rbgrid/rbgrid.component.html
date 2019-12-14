@@ -1,0 +1,44 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let header of getColumnDefsOrder; trackBy: trackIdColumn" [id]="header.field" draggable="true"
+                (dragstart)="drag($event)" (drop)="drop($event)" (dragover)="allowDrop($event)">
+                {{header.headerName}}
+            </th>
+            <th *ngIf="this.editable">
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of dataSourceItemsOrder; trackBy: trackId" (click)="clickRow(row,true)">
+            <td [ngClass]="{'clickedRow': row.clicked}" [ngStyle]="styleRowReturn(row)"
+                *ngFor="let column of getColumnDefsOrder; trackBy: trackIdColumn">
+                <span *ngIf="controlOptions('S', row, column)" [ngStyle]="hierachyStyle(row)"></span>
+                <a *ngIf="controlOptions('E', row, column)" (click)="expandItems(row)">
+                    <i [ngClass]="configs.classIconExpand" class="iconExpandCollapse" aria-hidden="true"></i>
+                </a>
+                <a *ngIf="controlOptions('C', row, column)" (click)="collapseItems(row)">
+                    <i [ngClass]="configs.classIconCollapse" class="iconExpandCollapse" aria-hidden="true"></i>
+                </a>
+                <input #inputEdit *ngIf="controlOptions('U', row, column)" class="form-control"
+                    [type]="typeInput(column.type)" [id]="column.field" [value]="row[column.field]"
+                    (blur)="updateValue(row, column.field, inputEdit.value)"
+                    (change)="changeValue(row, column.field, inputEdit.value)" (keyup.enter)="saveRow(row)"
+                    (keyup.esc)="cancelEditRow(row)">
+                <span
+                    *ngIf="controlOptions('T', row, column)">{{applyPipe(column.type, column.pipe, row[column.field])}}</span>
+            </td>
+            <td *ngIf="this.editable">
+                <button *ngIf="!row.editable" type="button" (click)="editRow(row)"> <i [ngClass]="configs.classIconEdit"
+                        class="icon" aria-hidden="true"></i> </button>
+
+                <button *ngIf="row.editable" type="button" (click)="cancelEditRow(row)"> <i
+                        [ngClass]="configs.classIconCancel" class="icon" aria-hidden="true"></i> </button>
+
+                <button *ngIf="row.editable" type="button" (click)="saveRow(row)"> <i [ngClass]="configs.classIconSave"
+                        class="icon" aria-hidden="true"></i> </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

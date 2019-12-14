@@ -1,0 +1,46 @@
+table {
+    margin-left: 6px;
+    margin-right: 6px;
+    border: 0.1px solid #ddd;
+}
+
+table th {
+    padding: 4px;
+    border-color: #dee2e6;
+    background-color: #3498db;
+    color: white;
+    padding-right: 100px;
+}
+
+td, th {
+    border-right: 0.1px solid #ddd;
+    padding: 2px;
+    text-align: left;
+    font-weight: normal;
+}
+
+.clickedRow {
+    background-color: #e0e0e0;
+}
+
+.iconExpandCollapse {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+.icon {
+    font-size: 18px; 
+    margin-right: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+td a {
+    cursor: pointer;
+}
