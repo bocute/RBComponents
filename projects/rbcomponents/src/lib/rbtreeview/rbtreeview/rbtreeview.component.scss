@@ -1,0 +1,21 @@
+ul {
+    list-style-type: none;
+    padding: 4px;
+}
+
+ul {
+    li {
+        a {
+            padding: 4px;
+            cursor: pointer;
+        }
+        span {
+            cursor: pointer;
+        }
+       margin: 4px;
+    }
+}
+
+.clickedRow {
+    background-color: #e0e0e0;
+}

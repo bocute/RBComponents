@@ -1,0 +1,12 @@
+<ul>
+    <li *ngFor="let row of dataSourceItemsOrder; trackBy: trackId" (click)="clickRow(row,true)">
+        <span *ngIf="controlOptions('S', row)" [ngStyle]="hierachyStyle(row)"></span>
+        <a *ngIf="controlOptions('E', row)" (click)="expandItems(row)">
+            <i class="fa fa-angle-right"></i>
+        </a>
+        <a *ngIf="controlOptions('C', row)" (click)="collapseItems(row)">
+            <i class="fa fa-angle-down"></i>
+        </a>
+        <span [ngClass]="{'clickedRow': row.clicked}">{{row[fieldExpandable]}}</span>
+    </li>
+</ul>

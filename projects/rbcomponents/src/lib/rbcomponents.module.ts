@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RBComponentsComponent } from './rbcomponents.component';
 import { RBGridModule } from './rbgrid/rbgrid.module';
+import { RBTreeviewModule } from './rbtreeview/rbtreeview.module';
 
 @NgModule({
-  declarations: [RBComponentsComponent],
+  declarations: [],
   imports: [
-      RBGridModule
+      RBGridModule,
+      RBTreeviewModule
   ],
   exports: [
-      RBComponentsComponent,
-      RBGridModule
+      RBGridModule,
+      RBTreeviewModule
     ]
 })
 export class RBComponentsModule { }
