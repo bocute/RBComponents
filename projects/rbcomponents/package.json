@@ -1,8 +1,30 @@
 {
-  "name": "rbcomponents",
+  "name": "@rbsoft/components",
   "version": "0.0.1",
+  "description": "Components para Angular",
+  "author": "Rafael Bocute",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bocute/RBComponents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bocute/RBComponents/issues"
+  },
+  "homepage": "https://github.com/bocute/RBComponents",
+  "keywords": [
+    "angular",
+    "javascript",
+    "component",
+    "typescript",
+    "directive"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
+  },
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "ng test"
   }
 }
